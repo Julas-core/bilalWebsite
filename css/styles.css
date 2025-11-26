@@ -298,18 +298,22 @@ h2 {
 .map-area {
     flex: 2;
     min-width: 300px;
-}
-
-.map-area 
-
-/* [Image of a static map showing the location] */
- {
     width: 100%;
     height: 350px;
-    background-color: #CCC; /* Placeholder for map image */
-    display: block;
     margin-top: 15px;
     border-radius: 8px;
+    overflow: hidden; /* make sure inner image doesn't overflow */
+    position: relative;
+    background-color: #CCC; /* Placeholder for map image */
+}
+
+/* Ensure any image inside the map-area fits and is clipped nicely */
+.map-area img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* cover keeps aspect ratio and fills the container */
+    border-radius: inherit;
 }
 
 /* --- 9. Footer (Used on ALL Pages) --- */
