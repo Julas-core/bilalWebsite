@@ -1,0 +1,357 @@
+/* --- 1. Basic Reset and Variables --- */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: #f4f4f4;
+}
+
+/* --- 2. Navigation Bar (Used on ALL Pages) --- */
+header {
+    background-color: #5C3D2E; /* Dark Brown */
+    color: white;
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+nav h1 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: #795548; /* Lighter Brown */
+}
+
+/* --- 3. General Content & Headings --- */
+.content-section {
+    padding: 60px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    color: #5C3D2E;
+}
+
+/* --- 4. Homepage (index.html) Styles --- */
+
+/* Hero Section */
+.hero {
+    background-color: #BCAAA4; /* Muted Beige background */
+    color: #5C3D2E;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-content {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.hero h2 {
+    font-size: 3.5em;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+.button {
+    display: inline-block;
+    background-color: #5C3D2E;
+    color: white;
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: #795548;
+}
+
+/* Top Picks Section */
+#picks {
+    background-color: #f4f4f4;
+}
+
+.picks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.pick-item {
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+.pick-item h3 {
+    color: #5C3D2E;
+    font-size: 1.5em;
+    margin-top: 0;
+}
+
+/* Placeholder Styling for Images in Top Picks */
+.pick-item ,
+.pick-item 
+
+/* [Image of a plate of delicious food] */
+ {
+    display: block;
+    width: 100%;
+    height: 150px;
+    background-color: #EFEBE9;
+    margin: 15px 0;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #795548;
+    font-style: italic;
+}
+
+/* --- 5. Menu Page Styles (menu.html) --- */
+#menu-page {
+    text-align: left;
+}
+
+.menu-category {
+    margin-bottom: 40px;
+    padding: 20px;
+    border: 1px solid #EFEBE9;
+    border-radius: 6px;
+    background-color: white;
+}
+
+.menu-category h3 {
+    color: #5C3D2E;
+    font-size: 1.8em;
+    border-bottom: 2px solid #BCAAA4;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+}
+
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 15px;
+}
+
+.menu-item h4 {
+    margin: 0;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.menu-item p {
+    flex-grow: 1;
+    margin: 0 10px;
+    border-bottom: 1px dotted #999;
+    height: 1px;
+}
+
+.menu-item span {
+    font-weight: bold;
+    color: #795548;
+    white-space: nowrap;
+}
+
+/* --- 6. About Us Page Styles (about.html) --- */
+#about-page p {
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-align: justify;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.philosophy {
+    margin-top: 30px;
+    padding: 30px;
+    border: 2px dashed #BCAAA4;
+    border-radius: 8px;
+    background-color: #EFEBE9;
+}
+
+.philosophy h3 {
+    color: #5C3D2E;
+    margin-top: 0;
+}
+
+/* --- 7. Gallery Page Styles (gallery.html) --- */
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.gallery-item {
+    background-color: #795548; /* Placeholder for images */
+    height: 250px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    /* For placeholders, display content */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    font-style: italic;
+}
+/* Placing a representative image for cafe interior */
+.gallery-item:nth-child(1) { background-color: #BCAAA4; }
+.gallery-item:nth-child(1)::after { content: "Interior Ambiance"}
+
+/* [Image of cafe interior] */
+
+/* Placing a representative image for food */
+.gallery-item:nth-child(2) { background-color: #795548; }
+.gallery-item:nth-child(2)::after { content: "Signature Dish" }
+/* [Image of a plate of delicious food] */
+
+/* Placing a representative image for coffee station */
+.gallery-item:nth-child(3) { background-color: #5C3D2E; }
+.gallery-item:nth-child(3)::after { content: "Coffee Station"; } 
+
+/* Placing a representative image for pastry */
+.gallery-item:nth-child(4) { background-color: #BCAAA4; }
+.gallery-item:nth-child(4)::after { content: "Fresh Pastry" } 
+/* [Image of a fresh pastry] */
+
+/* Placing a representative image for exterior */
+.gallery-item:nth-child(5) { background-color: #795548; }
+.gallery-item:nth-child(5)::after { content: "Cafe Exterior"} 
+
+/* [Image of the cafes exterior] */
+
+/* --- 8. Contact Page Styles (contact.html) --- */
+.contact-flex {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    text-align: left;
+    gap: 40px;
+}
+
+.contact-info {
+    flex: 1;
+    min-width: 300px;
+}
+
+.contact-info h3 {
+    color: #5C3D2E;
+    border-bottom: 1px solid #BCAAA4;
+    padding-bottom: 5px;
+    margin-top: 0;
+}
+
+.map-area {
+    flex: 2;
+    min-width: 300px;
+}
+
+.map-area 
+
+/* [Image of a static map showing the location] */
+ {
+    width: 100%;
+    height: 350px;
+    background-color: #CCC; /* Placeholder for map image */
+    display: block;
+    margin-top: 15px;
+    border-radius: 8px;
+}
+
+/* --- 9. Footer (Used on ALL Pages) --- */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 25px 0;
+    font-size: 0.9em;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+/* --- 10. Responsive Adjustments --- */
+@media (max-width: 800px) {
+    /* Navigation Stack */
+    nav {
+        flex-direction: column;
+    }
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+        margin-top: 10px;
+    }
+    nav ul li a {
+        text-align: center;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .hero h2 {
+        font-size: 2.5em;
+    }
+
+    /* Contact Stack */
+    .contact-flex {
+        flex-direction: column;
+        align-items: center;
+    }
+    .contact-info, .map-area {
+        width: 100%;
+        max-width: 500px;
+        margin-bottom: 30px;
+    }
+}
