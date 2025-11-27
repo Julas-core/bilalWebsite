@@ -213,17 +213,49 @@ h2 {
     margin-right: auto;
 }
 
-.philosophy {
-    margin-top: 30px;
-    padding: 30px;
-    border: 2px dashed #BCAAA4;
-    border-radius: 8px;
-    background-color: #EFEBE9;
+/* About page two-column layout: photo left, text right */
+.about-grid {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+    justify-content: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-top: 10px;
 }
 
-.philosophy h3 {
-    color: #5C3D2E;
-    margin-top: 0;
+.about-photo {
+    flex: 0 0 260px; /* fixed photo column */
+}
+
+.about-photo img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    display: block;
+    object-fit: cover;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    margin-bottom: 20px;
+}
+
+.about-text {
+    flex: 1 1 0;
+    max-width: 680px;
+    text-align: left;
+}
+
+@media (max-width: 800px) {
+    .about-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+    .about-photo {
+        width: 70%;
+        flex: 0 0 auto;
+    }
+    .about-text {
+        width: 90%;
+    }
 }
 
 /* --- 7. Gallery Page Styles (gallery.html) --- */
@@ -237,20 +269,16 @@ h2 {
 .gallery-item {
     background-color: #795548; /* Placeholder for images */
     width: 100%;
-    height: 100%;
+    height: 220px;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     /* For placeholders, display content */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-weight: bold;
-    font-style: italic;
+    display: block;
+    position: relative; /* allow absolutely positioned img to fill */
 }
 /* Placing a representative image for cafe interior */
-.gallery-item:nth-child(1) { background-color: #BCAAA4; }
+/* .gallery-item:nth-child(1) { background-color: #BCAAA4; }
 .gallery-item:nth-child(1)::after { content: "Interior Ambiance"}
 
 /* [Image of cafe interior] */
@@ -271,10 +299,7 @@ h2 {
 
 /* Placing a representative image for exterior */
 .gallery-item:nth-child(5) { background-color: #795548; }
-.gallery-item:nth-child(5)::after { content: "Cafe Exterior"} 
-
-/* [Image of the cafes exterior] */
-
+.gallery-item:nth-child(5)::after { content: "Cafe Exterior"}  */
 /* --- 8. Contact Page Styles (contact.html) --- */
 .contact-flex {
     display: flex;
@@ -284,9 +309,33 @@ h2 {
     gap: 40px;
 }
 
+/* Ensure gallery images fill their tiles and are clipped nicely */
+.gallery-item img {
+    position: absolute;
+    inset: 0; /* top:0; right:0; bottom:0; left:0 */
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* cover keeps aspect ratio and fills the container */
+    display: block;
+    border-radius: inherit;
+}
+
+/* Hide placeholder ::after labels (they were adding the brown sidebars) */
+.gallery-item::after {
+    content: none !important;
+    display: none !important;
+}
+
+@media (max-width: 800px) {
+    .gallery-item {
+        height: 180px; /* slightly shorter on small screens */
+    }
+}
+
 .contact-info {
     flex: 1;
     min-width: 300px;
+    align-items: center;
 }
 
 .contact-info h3 {
@@ -315,6 +364,77 @@ h2 {
     height: 100%;
     object-fit: cover; /* cover keeps aspect ratio and fills the container */
     border-radius: inherit;
+}
+
+/* --- Contact Form Styling (matches provided screenshot) --- */
+#contact-form {
+    width: 100%;
+    max-width: 900px;
+}
+
+#contact-form .form-group {
+    margin-bottom: 20px;
+}
+
+#contact-form label {
+    display: block;
+    margin-bottom: 8px;
+    color: #222;
+    font-weight: 600;
+}
+
+#contact-form input[type="text"],
+#contact-form input[type="email"],
+#contact-form input[type="tel"],
+#contact-form textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 6px;
+    border: none;
+    background-color: #cfcfcf; /* light gray fill like screenshot */
+    color: #111;
+    box-sizing: border-box;
+    font-size: 1rem;
+}
+
+#contact-form textarea {
+    min-height: 140px;
+    resize: vertical;
+}
+
+#contact-form input[type="text"]:focus,
+#contact-form input[type="email"]:focus,
+#contact-form input[type="tel"]:focus,
+#contact-form textarea:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(156, 71, 67, 0.08);
+}
+
+/* Make the form button match the full-width style in the screenshot */
+#contact-form .button {
+    display: block;
+    width: 100%;
+    padding: 12px 0;
+    border-radius: 8px;
+    background: #5C3D2E;
+    color: #fff;
+    font-weight: 600;
+    border: none;
+    box-shadow: 0 3px 0 rgba(0,0,0,0.08) inset;
+}
+
+#contact-form .button:hover {
+    background: linear-gradient(#c25a56, #9b3a38);
+}
+
+#contact-form .form-group input::placeholder,
+#contact-form textarea::placeholder {
+    color: #333;
+}
+
+/* Slight spacing tweaks for the contact column so labels/inputs align left */
+.contact-info {
+    text-align: left;
 }
 
 /* --- 9. Footer (Used on ALL Pages) --- */
@@ -358,5 +478,28 @@ footer p {
         width: 100%;
         max-width: 500px;
         margin-bottom: 30px;
+    }
+}
+
+/* Ensure map images always fill and stay clipped inside the container */
+.map-area {
+    position: relative; /* already set but reinforce */
+    overflow: hidden; /* make sure any overflow is clipped */
+}
+
+.map-area img {
+    position: absolute;
+    inset: 0; /* top:0; right:0; bottom:0; left:0; */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: inherit; /* preserve rounded corners */
+}
+
+/* When stacking on small screens keep the map image sized correctly */
+@media (max-width: 800px) {
+    .map-area {
+        height: 300px; /* slightly smaller on small screens */
     }
 }
